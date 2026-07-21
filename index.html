@@ -259,7 +259,76 @@
       font-size: 13px;
     }
 
-    /* ── FEEDBACK NOTE ────────────────────────────────── */
+    /* ── EMAIL CAPTURE ────────────────────────────────── */
+    .email-section {
+      text-align: center;
+      padding: 80px 24px 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .email-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .email-input {
+      width: 100%;
+      max-width: 420px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 14px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .email-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .email-input:focus {
+      border-color: var(--blue-3);
+    }
+
+    .email-btn {
+      background: var(--surface);
+      color: var(--blue-2);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      padding: 14px 32px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .email-btn:hover {
+      background: var(--blue-4);
+      color: var(--blue-1);
+      border-color: var(--blue-4);
+    }
+
+    .email-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .email-success {
+      display: none;
+      font-size: 15px;
+      color: var(--blue-2);
+      margin-top: 16px;
+    }
     .feedback-box {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -363,16 +432,19 @@
   <section>
     <p class="section-label">First, a quick look</p>
     <h2>Watch before you start</h2>
-    <p>A short overview of what the Good Morning Planner is, how it works, and the two or three things worth knowing before you dive in.</p>
+    <p>A short overview of what the Good Morning Planner is and how it works before you dive in.</p>
 
-    <!-- Replace the div below with your Loom embed code -->
-    <div class="video-wrap">
-      <div class="play-icon">
-        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <span>Video overview coming soon</span>
-    </div>
-  </section>
+<div class="video-wrap">
+  <iframe 
+    width="100%" 
+    height="100%" 
+    src="https://www.youtube.com/embed/cwBs4eJnS88" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+    style="border-radius:16px;">
+  </iframe>
+</div>
 
   <hr class="rule" />
 
@@ -430,6 +502,22 @@
 
   <hr class="rule" />
 
+  <!-- EMAIL CAPTURE -->
+  <div class="email-section">
+    <p class="section-label" style="text-align:center">Want updates?</p>
+    <h2 style="text-align:center; max-width:440px; margin: 0 auto 20px;">Stay in the loop</h2>
+    <p style="max-width:420px; margin: 0 auto;">Leave your email and I'll reach out occasionally with major updates and maybe a feedback survey.</p>
+
+    <form class="email-form" id="emailForm" action="https://formspree.io/f/mojglnpq" method="POST">
+      <input class="email-input" type="email" name="email" placeholder="your@email.com" required />
+      <button class="email-btn" type="submit">I'm in</button>
+      <p class="email-note">No spam. No data selling. Just updates.</p>
+      <p class="email-success" id="emailSuccess">Thank you — I'll be in touch.</p>
+    </form>
+  </div>
+
+  <hr class="rule" style="margin-top: 80px;" />
+
   <!-- CTA -->
   <div class="cta-section">
     <p class="section-label" style="text-align:center">Ready?</p>
@@ -444,6 +532,29 @@
   <footer>
     Good Morning: A Daily Planner — Beta Preview · Confidential, not for redistribution
   </footer>
+
+  <script>
+    const emailForm = document.getElementById('emailForm');
+    const emailSuccess = document.getElementById('emailSuccess');
+    emailForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(emailForm);
+      try {
+        const response = await fetch(emailForm.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          emailForm.reset();
+          emailSuccess.style.display = 'block';
+          emailForm.querySelector('button').style.display = 'none';
+        }
+      } catch (error) {
+        alert('Something went wrong — please try again.');
+      }
+    });
+  </script>
 
 </body>
 </html>
