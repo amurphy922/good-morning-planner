@@ -7,412 +7,54 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:        #0F1419;
-      --surface:   #1A2535;
-      --surface-2: #243044;
-      --blue-1:    #DCF1FF;
-      --blue-2:    #73A1CA;
-      --blue-3:    #5881AA;
-      --blue-4:    #3C5F85;
-      --gold:      #D4920A;
-      --rust:      #A63D2F;
-      --text:      #DCF1FF;
-      --text-muted:#8BAAC4;
-      --border:    rgba(220,241,255,0.10);
-      --radius:    16px;
-      --radius-sm: 10px;
-    }
-
+    :root { --bg: #0F1419; --surface: #1A2535; --surface-2: #243044; --blue-1: #DCF1FF; --blue-2: #73A1CA; --blue-3: #5881AA; --blue-4: #3C5F85; --gold: #D4920A; --text: #DCF1FF; --text-muted: #8BAAC4; --border: rgba(220,241,255,0.10); --radius: 16px; --radius-sm: 10px; }
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── HERO ─────────────────────────────────────────── */
-    .hero {
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 80px 24px 64px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(60,95,133,0.35) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(212,146,10,0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--blue-2);
-      margin-bottom: 24px;
-    }
-
-    .hero h1 {
-      font-size: clamp(42px, 8vw, 80px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-      color: var(--blue-1);
-      margin-bottom: 8px;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--blue-2);
-    }
-
-    .tagline {
-      font-size: clamp(14px, 2.5vw, 18px);
-      color: var(--text-muted);
-      margin-top: 20px;
-      max-width: 480px;
-    }
-
-    .hero-divider {
-      width: 40px;
-      height: 1px;
-      background: var(--gold);
-      margin: 40px auto;
-      opacity: 0.6;
-    }
-
-    .hero-intro {
-      max-width: 540px;
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-
-    .hero-intro strong {
-      color: var(--text);
-      font-weight: 400;
-    }
-
-    /* ── SECTIONS ─────────────────────────────────────── */
-    section {
-      padding: 80px 24px;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: clamp(24px, 4vw, 36px);
-      font-weight: 300;
-      letter-spacing: -0.01em;
-      color: var(--blue-1);
-      margin-bottom: 20px;
-      line-height: 1.2;
-    }
-
-    p {
-      color: var(--text-muted);
-      font-size: 16px;
-      margin-bottom: 16px;
-    }
-
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .hero { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px 24px 64px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(60,95,133,0.35) 0%, transparent 70%), radial-gradient(ellipse 40% 30% at 80% 80%, rgba(212,146,10,0.08) 0%, transparent 60%); pointer-events: none; }
+    .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue-2); margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(42px, 8vw, 80px); font-weight: 300; letter-spacing: -0.02em; line-height: 1.05; color: var(--blue-1); margin-bottom: 8px; }
+    .hero h1 em { font-style: italic; color: var(--blue-2); }
+    .tagline { font-size: clamp(14px, 2.5vw, 18px); color: var(--text-muted); margin-top: 20px; max-width: 480px; }
+    .hero-divider { width: 40px; height: 1px; background: var(--gold); margin: 40px auto; opacity: 0.6; }
+    .hero-intro { max-width: 540px; font-size: 16px; color: var(--text-muted); line-height: 1.8; }
+    .hero-intro strong { color: var(--text); font-weight: 400; }
+    section { padding: 80px 24px; max-width: 680px; margin: 0 auto; }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 300; letter-spacing: -0.01em; color: var(--blue-1); margin-bottom: 20px; line-height: 1.2; }
+    h3 { font-size: 16px; font-weight: 400; color: var(--blue-2); margin: 32px 0 16px; letter-spacing: 0.02em; }
+    p { color: var(--text-muted); font-size: 16px; margin-bottom: 16px; }
     p:last-child { margin-bottom: 0; }
-
-    /* ── VIDEO PLACEHOLDER ────────────────────────────── */
-    .video-wrap {
-      margin: 48px 0;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      aspect-ratio: 16/9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-
-    .video-wrap .play-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--blue-4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .video-wrap .play-icon svg {
-      width: 22px;
-      height: 22px;
-      fill: var(--blue-1);
-      margin-left: 3px;
-    }
-
-    /* ── INSTALL STEPS ────────────────────────────────── */
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 32px;
-    }
-
-    .step {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-    }
-
-    .step-num {
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--blue-4);
-      color: var(--blue-1);
-      font-size: 13px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1px;
-    }
-
-    .step-body strong {
-      display: block;
-      color: var(--text);
-      font-weight: 400;
-      margin-bottom: 4px;
-      font-size: 15px;
-    }
-
-    .step-body span {
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-
-    /* ── INTERACTIONS ─────────────────────────────────── */
-    .interactions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 32px;
-    }
-
-    .interaction {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      padding: 16px 20px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-    }
-
-    .interaction-icon {
-      flex-shrink: 0;
-      font-size: 20px;
-      width: 36px;
-      text-align: center;
-    }
-
-    .interaction-text strong {
-      color: var(--text);
-      font-weight: 400;
-      font-size: 14px;
-      display: block;
-    }
-
-    .interaction-text span {
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-
-    /* ── EMAIL CAPTURE ────────────────────────────────── */
-    .email-section {
-      text-align: center;
-      padding: 80px 24px 0;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .email-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      margin-top: 32px;
-    }
-
-    .email-input {
-      width: 100%;
-      max-width: 420px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 14px 24px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .email-input::placeholder {
-      color: var(--text-muted);
-    }
-
-    .email-input:focus {
-      border-color: var(--blue-3);
-    }
-
-    .email-btn {
-      background: var(--surface);
-      color: var(--blue-2);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 400;
-      padding: 14px 32px;
-      border-radius: 100px;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .email-btn:hover {
-      background: var(--blue-4);
-      color: var(--blue-1);
-      border-color: var(--blue-4);
-    }
-
-    .email-note {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    .email-success {
-      display: none;
-      font-size: 15px;
-      color: var(--blue-2);
-      margin-top: 16px;
-    }
-    .feedback-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--gold);
-      border-radius: var(--radius-sm);
-      padding: 24px;
-      margin-top: 32px;
-    }
-
-    .feedback-box p {
-      font-size: 15px;
-      margin-bottom: 0;
-    }
-
-    /* ── CTA ──────────────────────────────────────────── */
-    .cta-section {
-      text-align: center;
-      padding: 80px 24px 100px;
-    }
-
-    .cta-section p {
-      max-width: 420px;
-      margin: 0 auto 36px;
-      font-size: 15px;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background: var(--blue-4);
-      color: var(--blue-1);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      padding: 16px 40px;
-      border-radius: 100px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-    }
-
-    .cta-btn:hover {
-      background: var(--blue-3);
-      transform: translateY(-1px);
-    }
-
-    .cta-note {
-      margin-top: 16px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* ── DIVIDER LINE ─────────────────────────────────── */
-    .rule {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0 24px;
-    }
-
-    /* ── FOOTER ───────────────────────────────────────── */
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      font-size: 13px;
-      color: var(--text-muted);
-      opacity: 0.6;
-    }
-
-    /* ── RESPONSIVE ───────────────────────────────────── */
-    @media (max-width: 480px) {
-      .hero { padding: 60px 20px 48px; }
-      section { padding: 60px 20px; }
-      .step { padding: 16px 18px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; }
-    }
+    .video-wrap { margin: 48px 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); background: var(--surface); aspect-ratio: 16/9; }
+    .steps { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+    .step { display: flex; gap: 20px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; }
+    .step-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--blue-4); color: var(--blue-1); font-size: 13px; font-weight: 500; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+    .step-body strong { display: block; color: var(--text); font-weight: 400; margin-bottom: 4px; font-size: 15px; }
+    .step-body span { color: var(--text-muted); font-size: 14px; }
+    .feedback-box { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: var(--radius-sm); padding: 24px; margin-top: 32px; }
+    .feedback-box p { font-size: 15px; margin-bottom: 0; }
+    .email-section { text-align: center; padding: 80px 24px 0; max-width: 680px; margin: 0 auto; }
+    .email-form { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 32px; }
+    .email-input { width: 100%; max-width: 420px; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 14px 24px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 300; color: var(--text); outline: none; transition: border-color 0.2s; }
+    .email-input::placeholder { color: var(--text-muted); }
+    .email-input:focus { border-color: var(--blue-3); }
+    .email-btn { background: var(--surface); color: var(--blue-2); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 400; padding: 14px 32px; border-radius: 100px; border: 1px solid var(--border); cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .email-btn:hover { background: var(--blue-4); color: var(--blue-1); border-color: var(--blue-4); }
+    .email-note { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+    .email-success { display: none; font-size: 15px; color: var(--blue-2); margin-top: 16px; }
+    .cta-section { text-align: center; padding: 80px 24px 100px; }
+    .cta-section p { max-width: 420px; margin: 0 auto 36px; font-size: 15px; }
+    .cta-btn { display: inline-block; background: var(--blue-4); color: var(--blue-1); font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.01em; padding: 16px 40px; border-radius: 100px; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+    .cta-btn:hover { background: var(--blue-3); transform: translateY(-1px); }
+    .cta-note { margin-top: 16px; font-size: 13px; color: var(--text-muted); }
+    .rule { border: none; border-top: 1px solid var(--border); margin: 0 24px; }
+    footer { text-align: center; padding: 32px 24px; font-size: 13px; color: var(--text-muted); opacity: 0.6; }
+    @media (max-width: 480px) { .hero { padding: 60px 20px 48px; } section { padding: 60px 20px; } .step { padding: 16px 18px; } }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
   <header class="hero">
     <p class="eyebrow">Beta Preview — July 2026</p>
     <h1>Good Morning<br /><em>A Daily Planner</em></h1>
@@ -428,74 +70,45 @@
 
   <hr class="rule" />
 
-  <!-- WATCH -->
   <section>
     <p class="section-label">First, a quick look</p>
     <h2>Watch before you start</h2>
     <p>A short overview of what Good Morning is and how it works before you dive in.</p>
-
-<div class="video-wrap">
-  <iframe
-    width="100%"
-    height="100%"
-    src="https://www.youtube.com/embed/cwBs4eJnS88"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-    style="border-radius:16px;">
-  </iframe>
-</div>
-  </section>
-
-  <hr class="rule" />
-
-  <!-- INSTALL -->
-  <section>
-    <p class="section-label">Get the app</p>
-    <h2>Install it on your iPhone</h2>
-    <p>Good Morning runs as a web app installed directly to your home screen — no App Store, no account needed. It takes about thirty seconds.</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <strong>Open the app in Safari</strong>
-          <span>It must be Safari — Chrome and other browsers won't support the installation. (Link to the app below.)</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <strong>Tap the Share button</strong>
-          <span>The box-with-arrow icon at the bottom of the Safari toolbar.</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <strong>Tap "Add to Home Screen"</strong>
-          <span>Scroll down in the share sheet if you don't see it immediately.</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-body">
-          <strong>Tap "Add" and open from your home screen</strong>
-          <span>The app opens full screen, exactly like a native app.</span>
-        </div>
-      </div>
+    <div class="video-wrap">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/cwBs4eJnS88" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:16px;"></iframe>
     </div>
   </section>
 
   <hr class="rule" />
 
-  <!-- FEEDBACK -->
+  <section>
+    <p class="section-label">Get the app</p>
+    <h2>Install it on your phone</h2>
+    <p>Good Morning runs as a web app installed directly to your home screen — no App Store, no account needed. It takes about thirty seconds. Follow the steps for your device below.</p>
+
+    <h3>iPhone</h3>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Open the app in Safari</strong><span>It must be Safari — Chrome and other browsers won't support the installation. (Link to the app below.)</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Tap the Share button</strong><span>The box-with-arrow icon at the bottom of the Safari toolbar.</span></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Tap "Add to Home Screen"</strong><span>Scroll down in the share sheet if you don't see it immediately.</span></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Tap "Add" and open from your home screen</strong><span>The app opens full screen, exactly like a native app.</span></div></div>
+    </div>
+
+    <h3>Android</h3>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Open the app in Chrome</strong><span>Chrome is recommended for Android installation. (Link to the app below.)</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Tap "Add to Home Screen"</strong><span>Chrome may show a banner at the bottom of the screen automatically. If not, tap the three-dot menu in the top right corner and select "Add to Home Screen."</span></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Tap "Add" and open from your home screen</strong><span>The app opens full screen, exactly like a native app.</span></div></div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
   <section>
     <p class="section-label">Your feedback matters</p>
     <h2>Making it count</h2>
     <p>This is an early prototype — things will be rough around the edges and that's expected. The most useful feedback at this stage is honest and specific: what felt confusing, what felt satisfying, what you wished the app did differently. As feedback is collected, the app will periodically update with changes.</p>
     <p>You can submit feedback directly inside the app — scroll to the bottom of the Settings screen (the gear icon in the top corner) and you'll find a feedback field. There's no account needed and all feedback is anonymous.</p>
-
     <div class="feedback-box">
       <p>Good Morning is a work in progress. Things may shift between visits as the app evolves. Your feedback is part of what drives those changes — try planning your tomorrow today and share what you notice.</p>
     </div>
@@ -503,12 +116,10 @@
 
   <hr class="rule" />
 
-  <!-- EMAIL CAPTURE -->
   <div class="email-section">
     <p class="section-label" style="text-align:center">Want updates?</p>
     <h2 style="text-align:center; max-width:440px; margin: 0 auto 20px;">Stay in the loop</h2>
     <p style="max-width:420px; margin: 0 auto;">Leave your email and I'll reach out occasionally with updates and maybe a feedback survey or two.</p>
-
     <form class="email-form" id="emailForm" action="https://formspree.io/f/mojglnpq" method="POST">
       <input class="email-input" type="email" name="email" placeholder="your@email.com" required />
       <button class="email-btn" type="submit">I'm in</button>
@@ -519,20 +130,15 @@
 
   <hr class="rule" style="margin-top: 80px;" />
 
-  <!-- CTA -->
   <div class="cta-section">
     <p class="section-label" style="text-align:center">Ready?</p>
     <h2 style="text-align:center; max-width:400px; margin: 0 auto 20px;">Open Good Morning</h2>
-    <p>If you're reading this on your iPhone in Safari, tap the button below to go directly to the app — then install it to your home screen using the steps above.</p>
-
-    <!-- Replace # with your Lovable URL -->
-    <a class="cta-btn" href="https://goodmorningplanner.lovable.app" target="_blank" rel="noopener">Open the prototype →</a>
-    <p class="cta-note">Opens in a new tab · Safari required for installation</p>
+    <p>Tap the button below to go directly to the app — then install it to your home screen using the steps above.</p>
+    <a class="cta-btn" href="https://goodmorningplanner.lovable.app" target="_blank" rel="noopener">Open the prototype &rarr;</a>
+    <p class="cta-note">Opens in a new tab &middot; iPhone: Safari required &middot; Android: Chrome recommended</p>
   </div>
 
-  <footer>
-    Good Morning: A Daily Planner — Beta Preview · Confidential, not for redistribution
-  </footer>
+  <footer>Good Morning: A Daily Planner — Beta Preview &middot; Confidential, not for redistribution</footer>
 
   <script>
     const emailForm = document.getElementById('emailForm');
@@ -541,19 +147,9 @@
       e.preventDefault();
       const data = new FormData(emailForm);
       try {
-        const response = await fetch(emailForm.action, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-        if (response.ok) {
-          emailForm.reset();
-          emailSuccess.style.display = 'block';
-          emailForm.querySelector('button').style.display = 'none';
-        }
-      } catch (error) {
-        alert('Something went wrong — please try again.');
-      }
+        const response = await fetch(emailForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+        if (response.ok) { emailForm.reset(); emailSuccess.style.display = 'block'; emailForm.querySelector('button').style.display = 'none'; }
+      } catch (error) { alert('Something went wrong — please try again.'); }
     });
   </script>
 
